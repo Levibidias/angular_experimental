@@ -3,9 +3,10 @@ import { trigger,
   state, 
   style, 
   animate, 
-  transition 
+  transition, 
   //...
 } from '@angular/animations'
+import { query } from 'express';
 
 
 @Component({
@@ -22,18 +23,18 @@ import { trigger,
         opacity: 0
     })
       ),
-      state('checked', 
+      state('checked',
       style({display: 'block', 
         transform: 'scale(1)',
         opacity:1 
-      }
+      },
       )),
-      transition('unchecked => checked', [animate('1s ease')]),
+      transition('unchecked => checked',[animate('1s ease-in')]),
     ]),
   ],
 })
 export class CheckmarkComponent { 
-  @ViewChild('monElementHtml') inputElement: ElementRef | undefined;
+  //@ViewChild('monElementHtml') inputElement: ElementRef | undefined;
   isChecked = false;
 
   toggleCheckmark() {
